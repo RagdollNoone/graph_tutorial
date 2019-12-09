@@ -55,11 +55,25 @@ def store_user(request, user):
 
 def get_token(request):
   token = request.session['oauth_token']
+  #names=request.session.getAttributeNames()
+  '''
+  print(list(token.keys()))
+  for key in list(token.keys()):
+    print(str(key)+" : "+str(token[key]))
+  '''
   if token != None:
     # Check expiration
     now = time.time()
-    # Subtract 5 minutes from expiration to account for clock skew
-    expire_time = token['expires_at'] - 300
+    # Subtract 10 minutes from expiration to account for clock skew
+    expire_time = token['expires_at'] - 600
+    """
+    timeArray = time.localtime(token['expires_at'])
+    otherStyleTime = time.strftime("%Y--%m--%d %H:%M:%S", timeArray)
+    print(otherStyleTime)
+    timeArray = time.localtime(now)
+    otherStyleTime = time.strftime("%Y--%m--%d %H:%M:%S", timeArray)
+    print(otherStyleTime)
+    """
     if now >= expire_time:
       # Refresh the token
       aad_auth = OAuth2Session(settings['app_id'],

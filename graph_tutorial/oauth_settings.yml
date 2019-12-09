@@ -1,7 +1,7 @@
 app_id: 86e9bc73-bf36-4597-b92e-1704a2b5a057
 app_secret: XU[=18V/BsgJ+yrm8k314YDPSx@y6wi9
 redirect: http://localhost:8000/tutorial/callback
-scopes: user.read openid profile offline_access Calendars.ReadWrite.Shared Calendars.ReadWrite
+scopes: user.read openid profile offline_access Calendars.ReadWrite.Shared Calendars.ReadWrite #Mail.Send
 #openid profile offline_access user.read calendars.read user.read
 authority: https://login.microsoftonline.com/common
 authorize_endpoint: /oauth2/v2.0/authorize
